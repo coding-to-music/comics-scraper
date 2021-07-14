@@ -38,6 +38,10 @@ async function handleRequest(request) {
   const [_, comic, year, month, day] = pathname.split('/') // /comicName/year/month/day
 
   const goComicsFetch = await fetch(`https://www.gocomics.com${pathname}`)
+  
+  if (goComicsFetch.status != 200) {
+    return new Response(goComicsFetch.status)
+  }
   // console.log(await goComicsFetch.text())
   // const goComicsHtml = await goComicsFetch.text()
 
