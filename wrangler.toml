@@ -1,0 +1,7 @@
+name = "comic-scraper"
+type = "javascript"
+
+account_id = "4e4246a532504a83a59c052aae5645fa"
+workers_dev = true
+route = ""
+zone_id = ""
