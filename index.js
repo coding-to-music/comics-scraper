@@ -37,10 +37,14 @@ async function handleRequest(request) {
   const { pathname, searchParams } = new URL(request.url)
   const [_, comic, year, month, day] = pathname.split('/') // /comicName/year/month/day
 
+  console.log(`making a request to https://www.gocomics.com${pathname}`)
   const goComicsFetch = await fetch(`https://www.gocomics.com${pathname}`)
   
+  console.log(goComicsFetch.status)
   if (goComicsFetch.status != 200) {
-    return new Response(goComicsFetch.status)
+    return new Response(undefined, {
+      status: goComicsFetch.status
+    })
   }
   // console.log(await goComicsFetch.text())
   // const goComicsHtml = await goComicsFetch.text()
@@ -51,6 +55,11 @@ async function handleRequest(request) {
   // const comicDoc = domParser.parseFromString(goComicsHtml)
   // const imgSrc = comicDoc.querySelector("picture.item-comic-image > img").src
 
+  if (!imgSrc) {
+    return new Response(undefined, {
+      status: 404
+    })
+  }
   const imgRes = await fetch(imgSrc)
   return imgRes
 }
