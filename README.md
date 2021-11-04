@@ -13,3 +13,8 @@ wrangler generate projectname https://github.com/cloudflare/worker-template
 ```
 
 Further documentation for Wrangler can be found [here](https://developers.cloudflare.com/workers/tooling/wrangler).
+
+Invoke as follows:
+```java
+http://127.0.0.1:8787/peanuts/2021/11/03
+```
