@@ -17,4 +17,6 @@ Further documentation for Wrangler can be found [here](https://developers.cloudf
 Invoke as follows:
 ```java
 http://127.0.0.1:8787/peanuts/2021/11/03
+
+https://comic-scraper.coding-to-music.workers.dev/peanuts/2021/11/03
 ```
